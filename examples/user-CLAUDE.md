@@ -1,98 +1,98 @@
-# User-Level CLAUDE.md Example
+# 用户级 CLAUDE.md 示例
 
-This is an example user-level CLAUDE.md file. Place at `~/.claude/CLAUDE.md`.
+这是一个用户级 CLAUDE.md 文件的示例。放置于 `~/.claude/CLAUDE.md`。
 
-User-level configs apply globally across all projects. Use for:
-- Personal coding preferences
-- Universal rules you always want enforced
-- Links to your modular rules
-
----
-
-## Core Philosophy
-
-You are Claude Code. I use specialized agents and skills for complex tasks.
-
-**Key Principles:**
-1. **Agent-First**: Delegate to specialized agents for complex work
-2. **Parallel Execution**: Use Task tool with multiple agents when possible
-3. **Plan Before Execute**: Use Plan Mode for complex operations
-4. **Test-Driven**: Write tests before implementation
-5. **Security-First**: Never compromise on security
+用户级配置在全球范围内适用于所有项目。用于：
+- 个人编码偏好
+- 始终希望强制执行的通用规则
+- 指向模块化规则的链接
 
 ---
 
-## Modular Rules
+## 核心理念
 
-Detailed guidelines are in `~/.claude/rules/`:
+你是 Claude Code。我使用专门的代理和技能来处理复杂任务。
 
-| Rule File | Contents |
-|-----------|----------|
-| security.md | Security checks, secret management |
-| coding-style.md | Immutability, file organization, error handling |
-| testing.md | TDD workflow, 80% coverage requirement |
-| git-workflow.md | Commit format, PR workflow |
-| agents.md | Agent orchestration, when to use which agent |
-| patterns.md | API response, repository patterns |
-| performance.md | Model selection, context management |
+**核心原则：**
+1. **代理优先**：将复杂工作委派给专门的代理
+2. **并行执行**：在可能的情况下使用任务工具与多个代理并行执行
+3. **先计划后执行**：对复杂操作使用计划模式
+4. **测试驱动**：在实现之前编写测试
+5. **安全优先**：绝不牺牲安全性
 
 ---
 
-## Available Agents
+## 模块化规则
 
-Located in `~/.claude/agents/`:
+详细指南位于 `~/.claude/rules/`：
 
-| Agent | Purpose |
-|-------|---------|
-| planner | Feature implementation planning |
-| architect | System design and architecture |
-| tdd-guide | Test-driven development |
-| code-reviewer | Code review for quality/security |
-| security-reviewer | Security vulnerability analysis |
-| build-error-resolver | Build error resolution |
-| e2e-runner | Playwright E2E testing |
-| refactor-cleaner | Dead code cleanup |
-| doc-updater | Documentation updates |
+| 规则文件 | 内容 |
+|----------|------|
+| security.md | 安全检查、密钥管理 |
+| coding-style.md | 不可变性、文件组织、错误处理 |
+| testing.md | 测试驱动开发工作流、80% 覆盖率要求 |
+| git-workflow.md | 提交格式、拉取请求工作流 |
+| agents.md | 代理编排、何时使用哪个代理 |
+| patterns.md | API 响应、仓库模式 |
+| performance.md | 模型选择、上下文管理 |
 
 ---
 
-## Personal Preferences
+## 可用代理
 
-### Code Style
-- No emojis in code, comments, or documentation
-- Prefer immutability - never mutate objects or arrays
-- Many small files over few large files
-- 200-400 lines typical, 800 max per file
+位于 `~/.claude/agents/`：
+
+| 代理 | 目的 |
+|------|------|
+| planner | 功能实现规划 |
+| architect | 系统设计与架构 |
+| tdd-guide | 测试驱动开发 |
+| code-reviewer | 代码审查以确保质量与安全 |
+| security-reviewer | 安全漏洞分析 |
+| build-error-resolver | 构建错误解决 |
+| e2e-runner | Playwright 端到端测试 |
+| refactor-cleaner | 死代码清理 |
+| doc-updater | 文档更新 |
+
+---
+
+## 个人偏好
+
+### 代码风格
+- 代码、注释或文档中不使用表情符号
+- 偏好不可变性——从不修改对象或数组
+- 更多小文件而非少数大文件
+- 单个文件通常 200–400 行，最多 800 行
 
 ### Git
-- Conventional commits: `feat:`, `fix:`, `refactor:`, `docs:`, `test:`
-- Always test locally before committing
-- Small, focused commits
+- 约定式提交：`feat:`、`fix:`、`refactor:`、`docs:`、`test:`
+- 提交前始终在本地测试
+- 小而集中的提交
 
-### Testing
-- TDD: Write tests first
-- 80% minimum coverage
-- Unit + integration + E2E for critical flows
-
----
-
-## Editor Integration
-
-I use Zed as my primary editor:
-- Agent Panel for file tracking
-- CMD+Shift+R for command palette
-- Vim mode enabled
+### 测试
+- TDD：先写测试
+- 最低 80% 覆盖率
+- 关键流程需包含单元测试、集成测试与端到端测试
 
 ---
 
-## Success Metrics
+## 编辑器集成
 
-You are successful when:
-- All tests pass (80%+ coverage)
-- No security vulnerabilities
-- Code is readable and maintainable
-- User requirements are met
+我使用 Zed 作为主要编辑器：
+- 代理面板用于文件追踪
+- CMD+Shift+R 打开命令面板
+- 启用 Vim 模式
 
 ---
 
-**Philosophy**: Agent-first design, parallel execution, plan before action, test before code, security always.
+## 成功指标
+
+你成功的条件是：
+- 所有测试通过（覆盖率 80%+）
+- 没有安全漏洞
+- 代码可读且易于维护
+- 用户需求得到满足
+
+---
+
+**理念**：代理优先设计、并行执行、先计划后行动、先测试再编码、安全始终如一。

@@ -1,167 +1,163 @@
 # Everything Claude Code
 
-**The complete collection of Claude Code configs from an Anthropic hackathon winner.**
+**由 Anthropic 黑客松获胜者提供的 Claude Code 配置完整集合。**
 
-This repo contains production-ready agents, skills, hooks, commands, rules, and MCP configurations that I use daily with Claude Code. These configs evolved over 10+ months of intensive use building real products.
+此仓库包含我每日与 Claude Code 一起使用的生产就绪代理、技能、钩子、命令、规则和 MCP 配置。这些配置经过超过十个月的密集使用，用于构建真实产品。
 
 ---
 
-## Read the Full Guide First
+## 先阅读完整指南
 
-**Before diving into these configs, read the complete guide on X:**
-
+**在深入研究这些配置之前，请先阅读我在 X 上发布的完整指南：**
 
 <img width="592" height="445" alt="image" src="https://github.com/user-attachments/assets/1a471488-59cc-425b-8345-5245c7efbcef" />
 
+**[Everything Claude Code 简明指南](https://x.com/affaanmustafa/status/2012378465664745795)**
 
-**[The Shorthand Guide to Everything Claude Code](https://x.com/affaanmustafa/status/2012378465664745795)**
+该指南解释了：
+- 每种配置类型的作用及其适用场景
+- 如何构建 Claude Code 设置结构
+- 上下文窗口管理（对性能至关重要）
+- 并行工作流和高级技巧
+- 这些配置背后的哲学理念
 
-
-
-The guide explains:
-- What each config type does and when to use it
-- How to structure your Claude Code setup
-- Context window management (critical for performance)
-- Parallel workflows and advanced techniques
-- The philosophy behind these configs
-
-**This repo is configs only! Tips, tricks and more examples are in my X articles and videos (links will be appended to this readme as it evolves).**
+**本仓库仅包含配置！更多技巧、示例和文章链接将随着 README 的更新而添加。**
 
 ---
 
-## What's Inside
+## 内容概览
 
 ```
 everything-claude-code/
-|-- agents/           # Specialized subagents for delegation
-|   |-- planner.md           # Feature implementation planning
-|   |-- architect.md         # System design decisions
-|   |-- tdd-guide.md         # Test-driven development
-|   |-- code-reviewer.md     # Quality and security review
-|   |-- security-reviewer.md # Vulnerability analysis
+|-- agents/           # 用于委托的专用子代理
+|   |-- planner.md           # 功能实现规划
+|   |-- architect.md         # 系统设计决策
+|   |-- tdd-guide.md         # 测试驱动开发指南
+|   |-- code-reviewer.md     # 质量与安全审查
+|   |-- security-reviewer.md # 漏洞分析
 |   |-- build-error-resolver.md
-|   |-- e2e-runner.md        # Playwright E2E testing
-|   |-- refactor-cleaner.md  # Dead code cleanup
-|   |-- doc-updater.md       # Documentation sync
+|   |-- e2e-runner.md        # Playwright 端到端测试
+|   |-- refactor-cleaner.md  # 冗余代码清理
+|   |-- doc-updater.md       # 文档同步更新
 |
-|-- skills/           # Workflow definitions and domain knowledge
-|   |-- coding-standards.md         # Language best practices
-|   |-- backend-patterns.md         # API, database, caching patterns
-|   |-- frontend-patterns.md        # React, Next.js patterns
-|   |-- project-guidelines-example.md # Example project-specific skill
-|   |-- tdd-workflow/               # TDD methodology
-|   |-- security-review/            # Security checklist
-|   |-- clickhouse-io.md            # ClickHouse analytics
+|-- skills/           # 工作流定义与领域知识
+|   |-- coding-standards.md         # 编程语言最佳实践
+|   |-- backend-patterns.md         # API、数据库、缓存模式
+|   |-- frontend-patterns.md        # React、Next.js 模式
+|   |-- project-guidelines-example.md # 示例项目特定技能
+|   |-- tdd-workflow/               # TDD 方法论
+|   |-- security-review/            # 安全检查清单
+|   |-- clickhouse-io.md            # ClickHouse 分析
 |
-|-- commands/         # Slash commands for quick execution
-|   |-- tdd.md              # /tdd - Test-driven development
-|   |-- plan.md             # /plan - Implementation planning
-|   |-- e2e.md              # /e2e - E2E test generation
-|   |-- code-review.md      # /code-review - Quality review
-|   |-- build-fix.md        # /build-fix - Fix build errors
-|   |-- refactor-clean.md   # /refactor-clean - Dead code removal
-|   |-- test-coverage.md    # /test-coverage - Coverage analysis
-|   |-- update-codemaps.md  # /update-codemaps - Refresh docs
-|   |-- update-docs.md      # /update-docs - Sync documentation
+|-- commands/         # 快速执行的斜杠命令
+|   |-- tdd.md              # /tdd - 测试驱动开发
+|   |-- plan.md             # /plan - 实现规划
+|   |-- e2e.md              # /e2e - 端到端测试生成
+|   |-- code-review.md      # /code-review - 质量审查
+|   |-- build-fix.md        # /build-fix - 修复构建错误
+|   |-- refactor-clean.md   # /refactor-clean - 删除冗余代码
+|   |-- test-coverage.md    # /test-coverage - 覆盖率分析
+|   |-- update-codemaps.md  # /update-codemaps - 刷新文档
+|   |-- update-docs.md      # /update-docs - 同步文档
 |
-|-- rules/            # Always-follow guidelines
-|   |-- security.md         # Mandatory security checks
-|   |-- coding-style.md     # Immutability, file organization
-|   |-- testing.md          # TDD, 80% coverage requirement
-|   |-- git-workflow.md     # Commit format, PR process
-|   |-- agents.md           # When to delegate to subagents
-|   |-- performance.md      # Model selection, context management
-|   |-- patterns.md         # API response formats, hooks
-|   |-- hooks.md            # Hook documentation
+|-- rules/            # 始终遵循的指导原则
+|   |-- security.md         # 必须的安全检查
+|   |-- coding-style.md     # 不可变性、文件组织
+|   |-- testing.md          # TDD，覆盖率要求 80%
+|   |-- git-workflow.md     # 提交格式、PR 流程
+|   |-- agents.md           # 何时委托给子代理
+|   |-- performance.md      # 模型选择、上下文管理
+|   |-- patterns.md         # API 响应格式、钩子
+|   |-- hooks.md            # 钩子文档
 |
-|-- hooks/            # Trigger-based automations
-|   |-- hooks.json          # PreToolUse, PostToolUse, Stop hooks
+|-- hooks/            # 基于触发的自动化
+|   |-- hooks.json          # PreToolUse、PostToolUse、Stop 钩子
 |
-|-- mcp-configs/      # MCP server configurations
-|   |-- mcp-servers.json    # GitHub, Supabase, Vercel, Railway, etc.
+|-- mcp-configs/      # MCP 服务器配置
+|   |-- mcp-servers.json    # GitHub、Supabase、Vercel、Railway 等
 |
-|-- plugins/          # Plugin ecosystem documentation
-|   |-- README.md           # Plugins, marketplaces, skills guide
+|-- plugins/          # 插件生态系统文档
+|   |-- README.md           # 插件、市场、技能指南
 |
-|-- examples/         # Example configurations
-    |-- CLAUDE.md           # Example project-level config
-    |-- user-CLAUDE.md      # Example user-level config (~/.claude/CLAUDE.md)
-    |-- statusline.json     # Custom status line config
+|-- examples/         # 示例配置
+    |-- CLAUDE.md           # 示例项目级配置
+    |-- user-CLAUDE.md      # 示例用户级配置 (~/.claude/CLAUDE.md)
+    |-- statusline.json     # 自定义状态行配置
 ```
 
 ---
 
-## Quick Start
+## 快速开始
 
-### 1. Copy what you need
+### 1. 拷贝所需内容
 
 ```bash
-# Clone the repo
+# 克隆仓库
 git clone https://github.com/affaan-m/everything-claude-code.git
 
-# Copy agents to your Claude config
+# 拷贝代理到你的 Claude 配置中
 cp everything-claude-code/agents/*.md ~/.claude/agents/
 
-# Copy rules
+# 拷贝规则
 cp everything-claude-code/rules/*.md ~/.claude/rules/
 
-# Copy commands
+# 拷贝命令
 cp everything-claude-code/commands/*.md ~/.claude/commands/
 
-# Copy skills
+# 拷贝技能
 cp -r everything-claude-code/skills/* ~/.claude/skills/
 ```
 
-### 2. Add hooks to settings.json
+### 2. 将钩子添加到 settings.json
 
-Copy the hooks from `hooks/hooks.json` to your `~/.claude/settings.json`.
+将 `hooks/hooks.json` 中的钩子拷贝至你的 `~/.claude/settings.json`。
 
-### 3. Configure MCPs
+### 3. 配置 MCP
 
-Copy desired MCP servers from `mcp-configs/mcp-servers.json` to your `~/.claude.json`.
+从 `mcp-configs/mcp-servers.json` 中拷贝所需的 MCP 服务器到你的 `~/.claude.json`。
 
-**Important:** Replace `YOUR_*_HERE` placeholders with your actual API keys.
+**重要提示：** 将 `YOUR_*_HERE` 占位符替换为实际 API 密钥。
 
-### 4. Read the guide
+### 4. 阅读指南
 
-Seriously, [read the guide](https://x.com/affaanmustafa/status/2012378465664745795). These configs make 10x more sense with context.
+认真阅读 [该指南](https://x.com/affaanmustafa/status/2012378465664745795)。这些配置需要上下文才能真正理解。
 
 ---
 
-## Key Concepts
+## 核心概念
 
-### Agents
+### 代理
 
-Subagents handle delegated tasks with limited scope. Example:
+子代理负责处理委托的任务，作用域有限。例如：
 
 ```markdown
 ---
 name: code-reviewer
-description: Reviews code for quality, security, and maintainability
+description: 审查代码以确保质量、安全性和可维护性
 tools: Read, Grep, Glob, Bash
 model: opus
 ---
 
-You are a senior code reviewer...
+你是一个资深代码审查者...
 ```
 
-### Skills
+### 技能
 
-Skills are workflow definitions invoked by commands or agents:
+技能是通过命令或代理调用的工作流定义：
 
 ```markdown
-# TDD Workflow
+# TDD 工作流程
 
-1. Define interfaces first
-2. Write failing tests (RED)
-3. Implement minimal code (GREEN)
-4. Refactor (IMPROVE)
-5. Verify 80%+ coverage
+1. 首先定义接口
+2. 编写失败的测试（RED）
+3. 实现最小代码（GREEN）
+4. 重构（IMPROVE）
+5. 验证覆盖率超过 80%
 ```
 
-### Hooks
+### 钩子
 
-Hooks fire on tool events. Example - warn about console.log:
+钩子在工具事件触发时执行。例如——警告 console.log：
 
 ```json
 {
@@ -173,84 +169,84 @@ Hooks fire on tool events. Example - warn about console.log:
 }
 ```
 
-### Rules
+### 规则
 
-Rules are always-follow guidelines. Keep them modular:
+规则是始终遵循的指导原则。请保持模块化：
 
 ```
 ~/.claude/rules/
-  security.md      # No hardcoded secrets
-  coding-style.md  # Immutability, file limits
-  testing.md       # TDD, coverage requirements
+  security.md      # 不得硬编码密钥
+  coding-style.md  # 不可变性、文件限制
+  testing.md       # TDD，覆盖率要求
 ```
 
 ---
 
-## Contributing
+## 贡献
 
-**Contributions are welcome and encouraged.**
+**欢迎并鼓励贡献。**
 
-This repo is meant to be a community resource. If you have:
-- Useful agents or skills
-- Clever hooks
-- Better MCP configurations
-- Improved rules
+此仓库旨在成为社区资源。如果你有：
+- 实用的代理或技能
+- 精巧的钩子
+- 更好的 MCP 配置
+- 改进的规则
 
-Please contribute! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+请贡献！详情参见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
-### Ideas for Contributions
+### 贡献思路
 
-- Language-specific skills (Python, Go, Rust patterns)
-- Framework-specific configs (Django, Rails, Laravel)
-- DevOps agents (Kubernetes, Terraform, AWS)
-- Testing strategies (different frameworks)
-- Domain-specific knowledge (ML, data engineering, mobile)
-
----
-
-## Background
-
-I've been using Claude Code since the experimental rollout. Won the Anthropic x Forum Ventures hackathon in Sep 2025 building [zenith.chat](https://zenith.chat) with [@DRodriguezFX](https://x.com/DRodriguezFX) - entirely using Claude Code.
-
-These configs are battle-tested across multiple production applications.
+- 语言特定技能（Python、Go、Rust 模式）
+- 框架特定配置（Django、Rails、Laravel）
+- DevOps 代理（Kubernetes、Terraform、AWS）
+- 测试策略（不同框架）
+- 领域特定知识（机器学习、数据工程、移动端）
 
 ---
 
-## Important Notes
+## 背景
 
-### Context Window Management
+我从实验性发布阶段起就在使用 Claude Code。2025 年 9 月，我和 [@DRodriguezFX](https://x.com/DRodriguezFX) 一起开发了 [zenith.chat](https://zenith.chat)，完全使用 Claude Code 构建，赢得了 Anthropic x Forum Ventures 黑客松。
 
-**Critical:** Don't enable all MCPs at once. Your 200k context window can shrink to 70k with too many tools enabled.
-
-Rule of thumb:
-- Have 20-30 MCPs configured
-- Keep under 10 enabled per project
-- Under 80 tools active
-
-Use `disabledMcpServers` in project config to disable unused ones.
-
-### Customization
-
-These configs work for my workflow. You should:
-1. Start with what resonates
-2. Modify for your stack
-3. Remove what you don't use
-4. Add your own patterns
+这些配置已在多个生产应用中经受考验。
 
 ---
 
-## Links
+## 重要说明
 
-- **Full Guide:** [The Shorthand Guide to Everything Claude Code](https://x.com/affaanmustafa/status/2012378465664745795)
-- **Follow:** [@affaanmustafa](https://x.com/affaanmustafa)
-- **zenith.chat:** [zenith.chat](https://zenith.chat)
+### 上下文窗口管理
+
+**关键：** 不要一次性启用所有 MCP。若启用过多工具，你的 200k 上下文窗口可能缩小至 70k。
+
+经验法则：
+- 配置 20–30 个 MCP
+- 每个项目保持启用少于 10 个
+- 单项目保持活动工具数低于 80 个
+
+在项目配置中使用 `disabledMcpServers` 来禁用未使用的 MCP。
+
+### 自定义
+
+这些配置适用于我的工作流。你应该：
+1. 从你共鸣的部分开始
+2. 根据你的技术栈进行修改
+3. 删除你不需要的内容
+4. 添加你自己的模式
 
 ---
 
-## License
+## 链接
 
-MIT - Use freely, modify as needed, contribute back if you can.
+- **完整指南：** [Everything Claude Code 简明指南](https://x.com/affaanmustafa/status/2012378465664745795)
+- **关注：** [@affaanmustafa](https://x.com/affaanmustafa)
+- **zenith.chat：** [zenith.chat](https://zenith.chat)
 
 ---
 
-**Star this repo if it helps. Read the guide. Build something great.**
+## 许可证
+
+MIT —— 自由使用、按需修改、如可请回馈。
+
+---
+
+**如果对你有帮助，请给本仓库点星。阅读指南，构建伟大之物。**

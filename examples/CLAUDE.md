@@ -1,58 +1,58 @@
-# Example Project CLAUDE.md
+# 示例项目 CLAUDE.md
 
-This is an example project-level CLAUDE.md file. Place this in your project root.
+这是一个示例项目级别的 CLAUDE.md 文件。将其放置在您的项目根目录中。
 
-## Project Overview
+## 项目概述
 
-[Brief description of your project - what it does, tech stack]
+[对您的项目的简要描述——它做什么，技术栈]
 
-## Critical Rules
+## 关键规则
 
-### 1. Code Organization
+### 1. 代码组织
 
-- Many small files over few large files
-- High cohesion, low coupling
-- 200-400 lines typical, 800 max per file
-- Organize by feature/domain, not by type
+- 使用大量小型文件，而非少量大型文件
+- 高内聚、低耦合
+- 单个文件通常为 200–400 行，最多不超过 800 行
+- 按功能/领域组织，而非按类型
 
-### 2. Code Style
+### 2. 代码风格
 
-- No emojis in code, comments, or documentation
-- Immutability always - never mutate objects or arrays
-- No console.log in production code
-- Proper error handling with try/catch
-- Input validation with Zod or similar
+- 代码、注释或文档中不得使用表情符号
+- 始终使用不可变性——从不修改对象或数组
+- 生产环境中不得使用 console.log
+- 使用 try/catch 进行适当的错误处理
+- 使用 Zod 或类似工具进行输入验证
 
-### 3. Testing
+### 3. 测试
 
-- TDD: Write tests first
-- 80% minimum coverage
-- Unit tests for utilities
-- Integration tests for APIs
-- E2E tests for critical flows
+- TDD：先写测试
+- 最低覆盖率 80%
+- 工具函数使用单元测试
+- API 使用集成测试
+- 关键流程使用端到端测试
 
-### 4. Security
+### 4. 安全
 
-- No hardcoded secrets
-- Environment variables for sensitive data
-- Validate all user inputs
-- Parameterized queries only
-- CSRF protection enabled
+- 禁止硬编码密钥
+- 使用环境变量存储敏感数据
+- 验证所有用户输入
+- 仅使用参数化查询
+- 启用 CSRF 保护
 
-## File Structure
+## 文件结构
 
 ```
 src/
-|-- app/              # Next.js app router
-|-- components/       # Reusable UI components
-|-- hooks/            # Custom React hooks
-|-- lib/              # Utility libraries
-|-- types/            # TypeScript definitions
+|-- app/              # Next.js 应用路由
+|-- components/       # 可复用的 UI 组件
+|-- hooks/            # 自定义 React 钩子
+|-- lib/              # 工具库
+|-- types/            # TypeScript 定义
 ```
 
-## Key Patterns
+## 核心模式
 
-### API Response Format
+### API 响应格式
 
 ```typescript
 interface ApiResponse<T> {
@@ -62,39 +62,39 @@ interface ApiResponse<T> {
 }
 ```
 
-### Error Handling
+### 错误处理
 
 ```typescript
 try {
   const result = await operation()
   return { success: true, data: result }
 } catch (error) {
-  console.error('Operation failed:', error)
-  return { success: false, error: 'User-friendly message' }
+  console.error('操作失败：', error)
+  return { success: false, error: '用户友好的提示信息' }
 }
 ```
 
-## Environment Variables
+## 环境变量
 
 ```bash
-# Required
+# 必填项
 DATABASE_URL=
 API_KEY=
 
-# Optional
+# 可选项
 DEBUG=false
 ```
 
-## Available Commands
+## 可用命令
 
-- `/tdd` - Test-driven development workflow
-- `/plan` - Create implementation plan
-- `/code-review` - Review code quality
-- `/build-fix` - Fix build errors
+- `/tdd` - 测试驱动开发工作流
+- `/plan` - 创建实施计划
+- `/code-review` - 代码质量审查
+- `/build-fix` - 修复构建错误
 
-## Git Workflow
+## Git 工作流
 
-- Conventional commits: `feat:`, `fix:`, `refactor:`, `docs:`, `test:`
-- Never commit to main directly
-- PRs require review
-- All tests must pass before merge
+- 使用约定式提交：`feat:`、`fix:`、`refactor:`、`docs:`、`test:`
+- 禁止直接向 main 提交
+- Pull Request 必须经过审查
+- 合并前所有测试必须通过

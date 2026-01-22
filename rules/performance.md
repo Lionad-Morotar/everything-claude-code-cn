@@ -1,47 +1,47 @@
-# Performance Optimization
+# 性能优化
 
-## Model Selection Strategy
+## 模型选择策略
 
-**Haiku 4.5** (90% of Sonnet capability, 3x cost savings):
-- Lightweight agents with frequent invocation
-- Pair programming and code generation
-- Worker agents in multi-agent systems
+**Haiku 4.5**（具备 Sonnet 90% 的能力，成本节省 3 倍）：
+- 轻量级代理，频繁调用
+- 配对编程与代码生成
+- 多代理系统中的工作代理
 
-**Sonnet 4.5** (Best coding model):
-- Main development work
-- Orchestrating multi-agent workflows
-- Complex coding tasks
+**Sonnet 4.5**（最佳编码模型）：
+- 主要开发工作
+- 协调多代理工作流
+- 复杂编码任务
 
-**Opus 4.5** (Deepest reasoning):
-- Complex architectural decisions
-- Maximum reasoning requirements
-- Research and analysis tasks
+**Opus 4.5**（最深层推理）：
+- 复杂架构决策
+- 最大推理需求
+- 研究与分析任务
 
-## Context Window Management
+## 上下文窗口管理
 
-Avoid last 20% of context window for:
-- Large-scale refactoring
-- Feature implementation spanning multiple files
-- Debugging complex interactions
+避免在最后 20% 的上下文窗口中执行：
+- 大规模重构
+- 涉及多个文件的功能实现
+- 调试复杂交互
 
-Lower context sensitivity tasks:
-- Single-file edits
-- Independent utility creation
-- Documentation updates
-- Simple bug fixes
+低上下文敏感度任务：
+- 单文件编辑
+- 独立工具创建
+- 文档更新
+- 简单错误修复
 
-## Ultrathink + Plan Mode
+## Ultrathink + 计划模式
 
-For complex tasks requiring deep reasoning:
-1. Use `ultrathink` for enhanced thinking
-2. Enable **Plan Mode** for structured approach
-3. "Rev the engine" with multiple critique rounds
-4. Use split role sub-agents for diverse analysis
+对于需要深度推理的复杂任务：
+1. 使用 `ultrathink` 进行增强思考
+2. 启用 **计划模式** 以结构化方法处理
+3. “启动引擎”：进行多轮批判性审查
+4. 使用拆分角色子代理进行多样化分析
 
-## Build Troubleshooting
+## 构建故障排除
 
-If build fails:
-1. Use **build-error-resolver** agent
-2. Analyze error messages
-3. Fix incrementally
-4. Verify after each fix
+若构建失败：
+1. 使用 **build-error-resolver** 代理
+2. 分析错误信息
+3. 逐步修复
+4. 每次修复后进行验证

@@ -1,17 +1,17 @@
-# Coding Style
+# 编码风格
 
-## Immutability (CRITICAL)
+## 不可变性（至关重要的原则）
 
-ALWAYS create new objects, NEVER mutate:
+始终创建新对象，切勿修改原对象：
 
 ```javascript
-// WRONG: Mutation
+// 错误：修改原对象
 function updateUser(user, name) {
-  user.name = name  // MUTATION!
+  user.name = name  // 修改！
   return user
 }
 
-// CORRECT: Immutability
+// 正确：使用不可变性
 function updateUser(user, name) {
   return {
     ...user,
@@ -20,31 +20,31 @@ function updateUser(user, name) {
 }
 ```
 
-## File Organization
+## 文件组织
 
-MANY SMALL FILES > FEW LARGE FILES:
-- High cohesion, low coupling
-- 200-400 lines typical, 800 max
-- Extract utilities from large components
-- Organize by feature/domain, not by type
+推荐使用大量小型文件，而非少量大型文件：
+- 高内聚、低耦合
+- 典型每文件 200–400 行，最多 800 行
+- 从大型组件中提取工具函数
+- 按功能/领域组织，而非按类型
 
-## Error Handling
+## 错误处理
 
-ALWAYS handle errors comprehensively:
+始终全面处理错误：
 
 ```typescript
 try {
   const result = await riskyOperation()
   return result
 } catch (error) {
-  console.error('Operation failed:', error)
-  throw new Error('Detailed user-friendly message')
+  console.error('操作失败：', error)
+  throw new Error('详细的用户友好提示信息')
 }
 ```
 
-## Input Validation
+## 输入验证
 
-ALWAYS validate user input:
+始终验证用户输入：
 
 ```typescript
 import { z } from 'zod'
@@ -57,14 +57,14 @@ const schema = z.object({
 const validated = schema.parse(input)
 ```
 
-## Code Quality Checklist
+## 代码质量检查清单
 
-Before marking work complete:
-- [ ] Code is readable and well-named
-- [ ] Functions are small (<50 lines)
-- [ ] Files are focused (<800 lines)
-- [ ] No deep nesting (>4 levels)
-- [ ] Proper error handling
-- [ ] No console.log statements
-- [ ] No hardcoded values
-- [ ] No mutation (immutable patterns used)
+在标记工作完成前，请确保：
+- [ ] 代码可读且命名清晰
+- [ ] 函数简短（<50 行）
+- [ ] 文件专注（<800 行）
+- [ ] 无深层嵌套（>4 层）
+- [ ] 正确处理错误
+- [ ] 无 console.log 语句
+- [ ] 无硬编码值
+- [ ] 无修改原对象（使用不可变模式）
